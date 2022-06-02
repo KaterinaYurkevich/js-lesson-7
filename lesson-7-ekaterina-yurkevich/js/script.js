@@ -12,9 +12,8 @@ let food = [
 function getFruitsUpper200(arr) {
     let filteredArr = [];
     arr.forEach(item => {
-        item.name = item.name.trim().replace(" ", "").toLowerCase();
         if ((item.price > 200) && (item.isFruit)) {
-            filteredArr.push(item.name);
+            filteredArr.push(item.name.trim().replace(" ", "").toLowerCase());
         };
     });
     return filteredArr;
@@ -25,7 +24,7 @@ console.log(getFruitsUpper200(food));
 function getFruitsUpper200Second(arr) {
     let filteredArr = arr.filter(item => {
         return ((item.price > 200) && (item.isFruit));
-    }).map(item => item.name);
+    }).map(item => item.name.trim().replace(" ", "").toLowerCase());
     return filteredArr;
 };
 
@@ -34,7 +33,7 @@ console.log(getFruitsUpper200Second(food));
 function getFruitsUpper200Third(arr) {
     let filteredArr = arr.reduce((acc, item) => {
         if ((item.price > 200) && (item.isFruit)) {
-            acc.push(item.name);
+            acc.push(item.name.trim().replace(" ", "").toLowerCase());
         };
         return acc;
     }, []);
